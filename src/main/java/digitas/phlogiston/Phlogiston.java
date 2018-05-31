@@ -24,7 +24,7 @@ public class Phlogiston {
 		//Network handling, mod configuration, items and blocks
 		
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
-		FMLCommonHandler.instance().bus().register(new ConfigHandler());
+		//FMLCommonHandler.instance().bus().register(new ConfigHandler());
 	}
 	
 	@Mod.EventHandler
