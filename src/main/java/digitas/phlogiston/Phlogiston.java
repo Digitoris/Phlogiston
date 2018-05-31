@@ -30,7 +30,7 @@ public class Phlogiston {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
 		//guis, tile entities, recipes
-	}
+	}	
 	
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
