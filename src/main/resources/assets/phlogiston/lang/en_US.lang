@@ -1,0 +1,3 @@
+item.phlogiston:flask.name=Flask
+tile.phlogiston:metal.name=Metal
+itemGroup.Phlogiston=PhlogistonTest

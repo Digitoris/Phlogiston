@@ -1,12 +1,13 @@
 package digitas.phlogiston;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import digitas.phlogiston.handler.ConfigHandler;
+import digitas.phlogiston.init.ModBlocks;
+import digitas.phlogiston.init.ModItems;
 import digitas.phlogiston.proxy.IProxy;
 import digitas.phlogiston.reference.Reference;
 
@@ -25,6 +26,9 @@ public class Phlogiston {
 		
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		//FMLCommonHandler.instance().bus().register(new ConfigHandler());
+		
+		ModBlocks.init();
+		ModItems.init();
 	}
 	
 	@Mod.EventHandler
