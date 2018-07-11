@@ -5,6 +5,7 @@ public class ItemFlask extends ItemPhlogiston {
 	public ItemFlask() {
 		super();
 		this.setUnlocalizedName("flask");
+		this.setTextureName("flask");
 	}
 	
 }

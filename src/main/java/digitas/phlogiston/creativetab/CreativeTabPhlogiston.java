@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 
 public class CreativeTabPhlogiston {
 	
-	public static final CreativeTabs PHLOGISTON_TAB = new CreativeTabs(Reference.MOD_ID) {
+	public static final CreativeTabs PHLOGISTON_TAB = new CreativeTabs(Reference.MOD_ID.toLowerCase()) {
 		
 		@Override
 		@SideOnly(Side.CLIENT)

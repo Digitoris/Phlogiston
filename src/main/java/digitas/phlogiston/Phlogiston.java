@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import digitas.phlogiston.handler.ConfigHandler;
 import digitas.phlogiston.init.ModBlocks;
 import digitas.phlogiston.init.ModItems;
+import digitas.phlogiston.init.ModWorld;
 import digitas.phlogiston.proxy.IProxy;
 import digitas.phlogiston.reference.Reference;
 
@@ -29,6 +30,7 @@ public class Phlogiston {
 		
 		ModBlocks.init();
 		ModItems.init();
+		ModWorld.init();
 	}
 	
 	@Mod.EventHandler
