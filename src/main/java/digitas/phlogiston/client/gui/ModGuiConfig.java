@@ -1,8 +1,8 @@
 package digitas.phlogiston.client.gui;
 
 import cpw.mods.fml.client.config.GuiConfig;
-import digitas.phlogiston.handler.ConfigHandler;
 import digitas.phlogiston.reference.Reference;
+import digitas.phlogiston.utility.ConfigHandler;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;

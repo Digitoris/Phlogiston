@@ -6,6 +6,7 @@ import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.common.BiomeManager;
 
 public class WorldGenPhlogiston implements IWorldGenerator {
 
@@ -14,6 +15,7 @@ public class WorldGenPhlogiston implements IWorldGenerator {
 			switch(world.provider.dimensionId) {
 			case 0:
 				generateSurface(random, chunkX, chunkZ, world);
+				
 			}
 			
 		}
@@ -23,12 +25,16 @@ public class WorldGenPhlogiston implements IWorldGenerator {
 			int zBase = chunkZ*16;
 
 			
+			// SLOW FOR LIGHTING UPDATES
 			for (int i=0; i<16; i++) {
 				int x = xBase + i;
 				for (int j=0; j<16; j++) {
-					world.setBlock(x,200,zBase+j,Blocks.diamond_block,0,2);
+					world.setBlock(x,20,zBase+j,Blocks.diamond_block,0,2);
 				}
 			}
+			
+			//TODO ALL ORES
+			//TODO ALL STONES :D?
 			
 			
 		}

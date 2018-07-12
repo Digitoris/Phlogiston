@@ -2,8 +2,8 @@ package digitas.phlogiston.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import digitas.phlogiston.creativetab.CreativeTabPhlogiston;
 import digitas.phlogiston.reference.Textures;
+import digitas.phlogiston.utility.CreativeTabPhlogiston;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

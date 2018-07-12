@@ -1,4 +1,4 @@
-package digitas.phlogiston.creativetab;
+package digitas.phlogiston.utility;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
