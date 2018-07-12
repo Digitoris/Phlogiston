@@ -26,6 +26,7 @@ public class WorldGenPhlogiston implements IWorldGenerator {
 
 			
 			// SLOW FOR LIGHTING UPDATES
+
 			for (int i=0; i<16; i++) {
 				int x = xBase + i;
 				for (int j=0; j<16; j++) {
