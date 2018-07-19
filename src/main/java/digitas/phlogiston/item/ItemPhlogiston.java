@@ -5,15 +5,21 @@ import cpw.mods.fml.relauncher.SideOnly;
 import digitas.phlogiston.reference.Textures;
 import digitas.phlogiston.utility.CreativeTabPhlogiston;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
 public class ItemPhlogiston extends Item {
-	
+			
 	public ItemPhlogiston() {
 		super();
 		this.setCreativeTab(CreativeTabPhlogiston.PHLOGISTON_TAB);
+	}
+	
+	public ItemPhlogiston(String name) {
+		this();
+		this.setUnlocalizedName(name);
+		this.setTextureName(name);
 	}
 	
 	@Override
