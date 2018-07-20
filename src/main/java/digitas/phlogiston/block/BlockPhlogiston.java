@@ -10,13 +10,14 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class BlockPhlogiston extends Block {
 
-	public BlockPhlogiston(Material material) {
+	public BlockPhlogiston(String name, Material material) {
 		super(material);
+		this.setBlockName(name);
 		this.setCreativeTab(CreativeTabPhlogiston.PHLOGISTON_TAB);
 	}
 	
-	public BlockPhlogiston() {
-		this(Material.rock);
+	public BlockPhlogiston(String name) {
+		this(name, Material.rock);
 	}
 	
 	@Override
