@@ -12,7 +12,6 @@ import net.minecraft.util.IIcon;
 public class ItemPhlogiston extends Item {
 			
 	public ItemPhlogiston() {
-		super();
 		this.setCreativeTab(CreativeTabPhlogiston.PHLOGISTON_TAB);
 	}
 	
@@ -35,7 +34,7 @@ public class ItemPhlogiston extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+		itemIcon = iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnlocalizedName()));
 	}
 
 	protected String getUnwrappedUnlocalizedName(String unlocalizedName) {

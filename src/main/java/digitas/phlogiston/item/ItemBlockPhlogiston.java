@@ -2,9 +2,7 @@ package digitas.phlogiston.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import digitas.phlogiston.block.BlockOre;
-import digitas.phlogiston.block.BlockPhlogiston;
-import digitas.phlogiston.reference.Textures;
+import digitas.phlogiston.block.BlockMeta;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -27,6 +25,11 @@ public class ItemBlockPhlogiston extends ItemBlock {
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int i) {
 		return field_150939_a.getIcon(2, i);
+	}
+	
+	@Override
+	public String getUnlocalizedName(ItemStack itemStack) {
+		return getUnlocalizedName() + "." + ((BlockMeta)field_150939_a).names.get(itemStack.getItemDamage());
 	}
 
 }
