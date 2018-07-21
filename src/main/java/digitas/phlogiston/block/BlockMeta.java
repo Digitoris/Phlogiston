@@ -14,12 +14,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class BlockMeta<E extends Enum<E> & IType> extends BlockPhlogiston {
+public class BlockMeta<I extends IType> extends BlockPhlogiston {
 	
 	public List<IIcon> blockIcons;
-	public E[] types;
+	public I[] types;
 	
-	public BlockMeta(String name, Material material, E[] types) {
+	public BlockMeta(String name, Material material, I[] types) {
 		super(name, material);
 		this.types = types;
 		this.blockIcons = new ArrayList<IIcon>(this.types.length);
@@ -34,7 +34,7 @@ public class BlockMeta<E extends Enum<E> & IType> extends BlockPhlogiston {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		for (int i = 0; i < types.length; i++) {
-			blockIcons.add(types[i].getMeta(),iconRegister.registerIcon(
+			blockIcons.add(i,iconRegister.registerIcon(
 				getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_" + types[i].getName()
 			));
 		}
@@ -50,7 +50,7 @@ public class BlockMeta<E extends Enum<E> & IType> extends BlockPhlogiston {
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs creativetabs, List list) {
 		for (int i = 0; i < types.length; i++) {
-			list.add(new ItemStack(item, 1, types[i].getMeta()));
+			list.add(new ItemStack(item, 1, i));
 		}
 	}
 }

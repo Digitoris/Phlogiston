@@ -6,4 +6,5 @@ public interface IType {
 	
 	public String getName();
 	public int getMeta();
+	
 }
