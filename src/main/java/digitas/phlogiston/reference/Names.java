@@ -11,5 +11,9 @@ public final class Names {
 			"gear",
 			"ingot"
 	};
+	
+	public static final String[] METAL_NAMES = {
+			""
+	};
 
 }

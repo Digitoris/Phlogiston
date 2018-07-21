@@ -1,11 +1,12 @@
 package digitas.phlogiston.block;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import digitas.phlogiston.utility.IType;
+import digitas.phlogiston.utility.MetalType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,23 +14,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class BlockMeta extends BlockPhlogiston {
+public class BlockMeta<E extends Enum<E> & IType> extends BlockPhlogiston {
 	
-	
-	public List<String> names;
 	public List<IIcon> blockIcons;
-	public IIcon icon;
+	public E[] types;
 	
-	public BlockMeta(String name, Material material, String[] subNames) {
+	public BlockMeta(String name, Material material, E[] types) {
 		super(name, material);
-		
-		this.names = Arrays.asList(subNames);
-		
-		this.blockIcons = new ArrayList(this.names.size());
-	}
-	
-	public BlockMeta(String name, String[] subNames) {
-		this(name, Material.rock, subNames);
+		this.types = types;
+		this.blockIcons = new ArrayList<IIcon>(this.types.length);
 	}
 	
 	@Override
@@ -40,8 +33,10 @@ public class BlockMeta extends BlockPhlogiston {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
-		for (int i = 0; i < names.size(); i++) {
-			blockIcons.add(i,iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_" + names.get(i)));
+		for (int i = 0; i < types.length; i++) {
+			blockIcons.add(types[i].getMeta(),iconRegister.registerIcon(
+				getUnwrappedUnlocalizedName(this.getUnlocalizedName()) + "_" + types[i].getName()
+			));
 		}
 	}
 	
@@ -53,10 +48,9 @@ public class BlockMeta extends BlockPhlogiston {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs creativetabs, List list)
-	{
-		for (int i = 0; i < names.size(); i++) {
-			list.add(new ItemStack(item, 1, i));
+	public void getSubBlocks(Item item, CreativeTabs creativetabs, List list) {
+		for (int i = 0; i < types.length; i++) {
+			list.add(new ItemStack(item, 1, types[i].getMeta()));
 		}
 	}
 }
