@@ -2,7 +2,7 @@ package digitas.phlogiston.utility;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import digitas.phlogiston.init.ModItems;
+import digitas.phlogiston.item.ModItems;
 import digitas.phlogiston.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

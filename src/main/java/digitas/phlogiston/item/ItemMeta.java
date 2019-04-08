@@ -1,54 +1,63 @@
 package digitas.phlogiston.item;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import digitas.phlogiston.utility.IType;
+import digitas.phlogiston.utility.ResourceData;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class ItemMeta<I extends IType> extends ItemPhlogiston {
+public class ItemMeta extends ItemPhlogiston {
 	
-	public I[] types;
-	public List<IIcon> icons;
+	protected Map<Integer,ResourceData> types;
+	protected Map<Integer,IIcon> icons;
 
-	public ItemMeta(String name, I[] types) {
+	public ItemMeta(String name, ResourceData[] types) {
 		super(name);
 		setHasSubtypes(true);
-		this.types = types;
-		icons = new ArrayList(this.types.length);
+		icons = new HashMap();
+		
+		this.types = new HashMap();
+		for (ResourceData r : types) {
+			this.types.put(r.getMeta(), r);
+		}
 	}
-	
+
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack) {
-		return super.getUnlocalizedName() + "." + types[itemStack.getItemDamage()].getName();
+		return super.getUnlocalizedName() + "." + types.get(itemStack.getItemDamage()).getName();
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister) {
-		for (int i = 0; i < types.length; i++) {
-			icons.add(i,iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_" + types[i].getName())));
+		for (ResourceData r : types.values()) {
+			icons.put(r.getMeta(),iconRegister.registerIcon(getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_" + r.getName())));
 		}
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int i) {
-		return icons.get(i);
+	public IIcon getIconFromDamage(int meta) {
+		if (icons.containsKey(meta)) {
+			return icons.get(meta);
+		} else {
+			return icons.values().iterator().next();
+		}
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < types.length; i++) {
-			list.add(new ItemStack(item, 1, i));
+		for (ResourceData r : types.values()) {
+			list.add(new ItemStack(item, 1, r.getMeta()));
 		}
 	}
 }

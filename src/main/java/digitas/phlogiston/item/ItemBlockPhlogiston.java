@@ -29,7 +29,7 @@ public class ItemBlockPhlogiston extends ItemBlock {
 	
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack) {
-		return getUnlocalizedName() + "." + ((BlockMeta)field_150939_a).types[itemStack.getItemDamage()].getName();
+		return getUnlocalizedName() + "." + ((BlockMeta)field_150939_a).getTypeFromMeta(itemStack.getItemDamage()).getName();
 	}
 
 }

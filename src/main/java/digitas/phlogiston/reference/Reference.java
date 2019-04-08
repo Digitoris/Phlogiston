@@ -10,4 +10,7 @@ public final class Reference {
 	public static final String SERVER_PROXY_CLASS = "digitas.phlogiston.proxy.ServerProxy";
 	public static final String GUI_FACTORY_CLASS = "digitas.phlogiston.client.gui.GuiFactory";
 	
+	public static final String DEPENDENCIES = "required-after:Forestry@[4.2.5,);after:ExtraBees;after:BiomesOPlenty";
+	
+	public static final String WORLDTYPE = "Phlogiston";
 }

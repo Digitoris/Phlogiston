@@ -7,7 +7,6 @@ import digitas.phlogiston.utility.CreativeTabPhlogiston;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 public class ItemPhlogiston extends Item {
 			
