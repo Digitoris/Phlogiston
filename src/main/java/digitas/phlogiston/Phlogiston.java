@@ -10,8 +10,10 @@ import digitas.phlogiston.item.ModItems;
 import digitas.phlogiston.proxy.IProxy;
 import digitas.phlogiston.recipe.ModRecipes;
 import digitas.phlogiston.reference.Reference;
+import digitas.phlogiston.utility.EventHandler;
 import digitas.phlogiston.utility.ModFixes;
 import digitas.phlogiston.world.ModWorld;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS, dependencies = Reference.DEPENDENCIES)
 public class Phlogiston {
@@ -38,6 +40,8 @@ public class Phlogiston {
 	public void init(FMLInitializationEvent event) {
 		ModFixes.init();
 		ModRecipes.init();
+		
+		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}	
 	
 	@Mod.EventHandler

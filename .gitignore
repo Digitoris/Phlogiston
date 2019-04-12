@@ -13,8 +13,9 @@ gradle-app.setting
 bin/
 build/
 eclipse/
+libs/
+research/
 .gradle/
 .settings/
 .classpath
 .project
-research/

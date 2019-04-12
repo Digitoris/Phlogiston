@@ -11,7 +11,7 @@ import net.minecraft.block.material.Material;
 public class ModBlocks {
 
 	public static final Block metal = new BlockPhlogiston("metal", Material.iron);
-	public static final Block blockOre = new BlockOre("blockOre", Material.rock, ResourceData.getValues(false));
+	public static final Block blockOre = new BlockOre("blockOre", Material.rock, ResourceData.getOres(false));
 	public static final Block blockResource = new BlockMeta("blockResource", Material.iron, ResourceData.getValues(false));
 	
 	public static void init() {
