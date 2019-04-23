@@ -14,7 +14,7 @@ public class ModBlocks {
 	public static final Block blockOre = new BlockOre("blockOre", Material.rock, ResourceData.getOres(false));
 	public static final Block blockResource = new BlockMeta("blockResource", Material.iron, ResourceData.getValues(false));
 	
-	public static void init() {
+	public static void preInit() {
 		
 		GameRegistry.registerBlock(metal, "metal");
 		GameRegistry.registerBlock(blockOre, ItemBlockPhlogiston.class, "blockOre");

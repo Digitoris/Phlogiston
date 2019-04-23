@@ -13,8 +13,10 @@ public class EventHandler {
 	@SubscribeEvent
 	public void onHarvest(HarvestDropsEvent event) {
 		if (!(event.block instanceof BlockPhlogiston) && !event.isSilkTouching) {
+			
 			int[] ids = OreDictionary.getOreIDs(new ItemStack(event.block,1,event.blockMetadata));
 			ResourceData resource = null;
+			
 			for (int i = 0; i < ids.length; i++) {
 				if (OreDictionary.getOreName(ids[i]).substring(0,3).equals("ore")) {
 					try {
@@ -25,14 +27,17 @@ public class EventHandler {
 					}
 				}
 			}
+			
 			if (resource != null) {
 				ItemStack stack = new ItemStack(event.block,1,event.blockMetadata);
+
 				for (int i = 0; i < event.drops.size(); i++) {
 					if (ItemStack.areItemStacksEqual(event.drops.get(i), stack)) {
 						event.drops.remove(i);
 						break;
 					}
 				}
+				
 				int quantity = Utils.fortuneHelper(resource.getOreQuantity(), resource.getFortuneBonus(), event.fortuneLevel);
 				if (resource.isMetal()) {
 					event.drops.add(new ItemStack(ModItems.dustDirty,quantity,resource.getMeta()));

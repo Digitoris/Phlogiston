@@ -16,7 +16,7 @@ public class ModWorld {
 	
 	public static WorldTypePhlogiston worldTypePhlogiston;
 	
-	public static void init() {
+	public static void preInit() {
 		//GameRegistry.registerWorldGenerator(new WorldGenPhlogiston(), 1);
 		registerBiomes();
 	}

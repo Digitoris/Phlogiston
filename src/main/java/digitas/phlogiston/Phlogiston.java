@@ -28,9 +28,9 @@ public class Phlogiston {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		
-		ModBlocks.init();
-		ModItems.init();
-		ModWorld.init();
+		ModBlocks.preInit();
+		ModItems.preInit();
+		ModWorld.preInit();
 		//ModNetwork.init();
 		ModFixes.preInit();
 		

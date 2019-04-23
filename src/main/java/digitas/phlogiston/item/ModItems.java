@@ -15,7 +15,7 @@ public class ModItems {
 	public static final ItemMeta resource = new ItemMeta("resource", ResourceData.getNonMetals(false));
 
 	
-	public static void init() {
+	public static void preInit() {
 		GameRegistry.registerItem(flask, "flask");
 		GameRegistry.registerItem(gear, "gear");
 		GameRegistry.registerItem(plate, "plate");
